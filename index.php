@@ -1,3 +1,8 @@
+<?php
+$mailInput = $_POST['mail'];
+var_dump($mailInput) ;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,9 +26,17 @@
                 <button type="submit" class="btn btn-primary">Confirm</button>
             </div>
         </form>
-        <div class="esito">
-            <h4><?php echo $_POST['mail'];?></h4>
+        <!--validazione mail-->
+        <div id="response">
+            <?php
+                if(strpos($mailInput, '@') !== false && strpos($mailInput, '.' ) !== false ) {
+                    echo "<h2>mail inserita correttamente</h2>";
+                } else {
+                    echo "<h2>non è corretta</h2>";
+                };
+            ?>
         </div>
+        <!--validazione mail-->
         <!--form-->
     </main>
     <!-- /corpo-->
