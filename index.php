@@ -1,6 +1,23 @@
 <?php
-$mailInput = $_POST['mail'] ?? '';
-include __DIR__ . "/./functions.php";
+//variabile per errore nulla
+$error = NULL;
+//variabile mail vuota
+$email = '';
+
+//verifica se il parametro esiste e se ha contenuto salvalo in variabile
+if(!empty($_POST['mail'])) {
+    $mailInput = $_POST['mail'];
+    
+    //verifica se la mail è scritta correttamente
+    if(str_contains($mailInput, '.') && str_contains($mailInput, '@')) {
+        echo "ok la mail è valida";
+        $error = false;
+
+    } else {
+        echo "no, la mail non è valida";
+        $error = true;
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -23,10 +40,10 @@ include __DIR__ . "/./functions.php";
     
     <main class="container">
         <!--form-->
-        <form action="#" method="POST" class="row align-items-center justify-content-center">
+        <form action="index.php" method="POST" class="row align-items-center justify-content-center">
             <div class="mb-3">
                 <label for="mailInput" class="form-label">Registrati alla newsletter</label>
-                <input type="email" class="form-control" id="mailInput" placeholder="Inserisci la tua email..." name="mail">
+                <input type="text" class="form-control" id="mailInput" placeholder="Inserisci la tua email..." name="mail" value="<?php echo $email; ?>">
             </div>
             <div class="col-auto">
                 <button type="submit" class="btn btn-primary">Confirm identity</button>
@@ -34,10 +51,18 @@ include __DIR__ . "/./functions.php";
         </form>
         <!--validazione mail-->
         <div id="response">
-            
-            <?php
-            checkAlert($mailInput);
-            ?>
+            <!--gestione errore mail-->
+            <?php 
+            if($error === false) : ?>
+            <div class="alert alert-success" role="alert">
+                A simple success alert—check it out!
+            </div>
+            <?php elseif($error === true) : ?>
+            <div class="alert alert-warning" role="alert">
+                A simple warning alert—check it out!
+            </div>
+            <?php endif; ?>
+            <!--gestione errore mail-->
         </div>
         <!--validazione mail-->
         <!--form-->
