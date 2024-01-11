@@ -9,10 +9,10 @@ $email = '';
 
 //verifica se il parametro esiste e se ha contenuto salvalo in variabile
 if(!empty($_POST['mail'])) {
-    $mailInput = $_POST['mail'];
+    $email = $_POST['mail'];
     
     //verifica se la mail è scritta correttamente
-    if(checkAlert($mailInput)) {
+    if(checkAlert($email)) {
         echo "ok la mail è valida";
         $error = false;
 
