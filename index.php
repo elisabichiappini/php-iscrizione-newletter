@@ -1,4 +1,7 @@
 <?php
+
+require_once __DIR__ . '/./functions.php';
+
 //variabile per errore nulla
 $error = NULL;
 //variabile mail vuota
@@ -9,7 +12,7 @@ if(!empty($_POST['mail'])) {
     $mailInput = $_POST['mail'];
     
     //verifica se la mail è scritta correttamente
-    if(str_contains($mailInput, '.') && str_contains($mailInput, '@')) {
+    if(checkAlert($mailInput)) {
         echo "ok la mail è valida";
         $error = false;
 
