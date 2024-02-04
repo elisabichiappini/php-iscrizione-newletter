@@ -1,7 +1,5 @@
 <?php
 
-require_once __DIR__ . '/./functions.php';
-
 //variabile per errore nulla
 $error = NULL;
 //variabile mail vuota
