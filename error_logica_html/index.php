@@ -10,17 +10,16 @@ $email = '';
 //verifica se il parametro esiste e se ha contenuto salvalo in variabile
 if(!empty($_POST['mail'])) {
     $email = $_POST['mail'];
-    
+    echo 'mail inserita';
     //verifica se la mail è scritta correttamente
-    if(checkAlert($email)) {
+    if(str_contains($email, '.') && str_contains($email, '@')) {
         echo "ok la mail è valida";
         $error = false;
-
     } else {
         echo "no, la mail non è valida";
         $error = true;
     }
-}
+};
 ?>
 
 <!DOCTYPE html>
@@ -36,7 +35,7 @@ if(!empty($_POST['mail'])) {
 <body>
     <!--intestazione-->
     <header>
-        <h1>Sito Bello</h1>
+        <h1>Accedi SitoBello</h1>
     </header>
     <!-- /intestazione-->
     <!--corpo-->
@@ -58,11 +57,11 @@ if(!empty($_POST['mail'])) {
             <?php 
             if($error === false) : ?>
             <div class="alert alert-success" role="alert">
-                A simple success alert—check it out!
+                Email valide!
             </div>
             <?php elseif($error === true) : ?>
             <div class="alert alert-warning" role="alert">
-                A simple warning alert—check it out!
+                Email not valide!
             </div>
             <?php endif; ?>
             <!--gestione errore mail-->
