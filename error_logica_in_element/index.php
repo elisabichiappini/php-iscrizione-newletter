@@ -50,19 +50,14 @@ if(!empty($_POST['mail'])) {
             </div>
         </form>
         <!--validazione mail-->
-        <div id="response">
+
             <!--gestione errore mail-->
-            <?php 
-            if($error === false) : ?>
-            <div class="alert alert-success" role="alert">
-                Email valide!
-            </div>
-            <?php elseif($error === true) : ?>
-            <div class="alert alert-warning" role="alert">
-                Email not valide!
-            </div>
-            <?php endif; ?>
+            <?php if($error !== NULL ) : ?>
+                <div class="alert alert-<?php if($error=== true) : ?>danger<?php else : ?>success<?php endif ; ?> mt-3" role="alert">
+                    <?php if($error === true) : ?>Email not valide!<?php else : ?> Email valide!<?php endif ; ?>
+                </div>
             <!--gestione errore mail-->
+            <?php endif ; ?>
         </div>
         <!--validazione mail-->
         <!--form-->
