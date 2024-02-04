@@ -2,12 +2,7 @@
 // funzione per condivisione dati tra pagine;
 session_start();
 
-// condizione per visualizzare il messaggio con la mail
-if(!isset($_SESSION['email'])) {
-    $_SESSION['email'] = '';
-}
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +14,7 @@ if(!isset($_SESSION['email'])) {
     <!--/CDN CSS Bootstrap-->
 </head>
 <body>
-    <p class="text-center">L'iscrizione alla newsletter è andata a buon fine! Sei registrato con la mail <?php echo $_SESSION['email']; ?></p>
+    <h5 class="text-center">L'iscrizione alla newsletter è andata a buon fine! Sei registrato con la mail <strong><?php echo $_SESSION['mail']; ?></strong></h5>
     <!--CDN JS Bootstrap-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <!--/CDN JS Bootstrap-->

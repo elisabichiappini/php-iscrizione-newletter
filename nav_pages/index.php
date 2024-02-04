@@ -20,10 +20,6 @@ if(!empty($_POST['mail'])) {
         $_SESSION['mail'] = $email;
         header('Location: thankyou.php');
         die;
-        //messaggio ok mail valida prima che venisse reinderizzato l'utente a una nuova pagina
-        // echo "ok la mail è valida";
-        // $error = false;
-
     } else {
         $error = true;
     }
@@ -40,10 +36,10 @@ if(!empty($_POST['mail'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <!--/CDN CSS Bootstrap-->
 </head>
-<body>
+<body class="bg-warning-subtle pt-5">
     <!--intestazione-->
     <header>
-        <h1>Sito Bello</h1>
+        <h1 class="text-center">Sito Bello</h1>
     </header>
     <!-- /intestazione-->
     <!--corpo-->
